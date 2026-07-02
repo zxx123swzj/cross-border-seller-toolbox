@@ -1,0 +1,435 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>跨境卖家工具箱 | 新手教程与利润计算</title>
+    <meta
+      name="description"
+      content="跨境卖家工具箱，包含 Shopee 利润计算、eBay 手续费、TikTok Shop 成本表、运费估算、标题生成、违规词查询和新手开店流程。"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="#top" aria-label="跨境卖家工具箱首页">
+        <span class="brand-mark">跨</span>
+        <span>跨境卖家工具箱</span>
+      </a>
+      <nav class="nav-links" aria-label="主要导航">
+        <a href="#tasks">按问题找工具</a>
+        <a href="#tools">工具台</a>
+        <a href="#articles">新手文章</a>
+        <a href="./articles.html">全部文章</a>
+      </nav>
+    </header>
+
+    <main id="top">
+      <section class="hero compact-hero" aria-labelledby="hero-title">
+        <img src="./assets/crossborder-toolbox-hero.png" alt="" class="hero-image" />
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+          <p class="eyebrow">跨境新手工作台</p>
+          <h1 id="hero-title">跨境卖家工具箱</h1>
+          <p class="hero-copy">
+            先选你现在卡住的问题，再进入对应工具。选品、利润、物流、标题、违规词和开店教程都收在一个清晰的工作台里。
+          </p>
+          <div class="hero-actions" aria-label="快捷入口">
+            <a href="#tasks" class="button primary">按问题开始</a>
+            <a href="#tools" class="button secondary" data-open-tool="profit">打开工具台</a>
+          </div>
+        </div>
+      </section>
+
+      <section id="tasks" class="task-board" aria-label="按问题找工具">
+        <div class="task-heading">
+          <p class="eyebrow">Choose a task</p>
+          <h2>你现在想解决什么？</h2>
+        </div>
+        <div class="task-grid">
+          <button class="task-card active" type="button" data-open-tool="fit">
+            <span>01</span>
+            <strong>不知道卖什么</strong>
+            <small>先判断产品值不值得测</small>
+          </button>
+          <button class="task-card" type="button" data-open-tool="profit">
+            <span>02</span>
+            <strong>不知道赚不赚钱</strong>
+            <small>计算平台费和净利率</small>
+          </button>
+          <button class="task-card" type="button" data-open-tool="shipping">
+            <span>03</span>
+            <strong>不知道物流怎么选</strong>
+            <small>比较目的地和渠道成本</small>
+          </button>
+          <button class="task-card" type="button" data-open-tool="listing">
+            <span>04</span>
+            <strong>标题、详情、违规词</strong>
+            <small>生成标题并检查风险词</small>
+          </button>
+          <button class="task-card" type="button" data-open-tool="tutorials">
+            <span>05</span>
+            <strong>不知道怎么开店</strong>
+            <small>按平台看入驻流程</small>
+          </button>
+        </div>
+      </section>
+
+      <section id="tools" class="section tool-workbench">
+        <div class="section-heading">
+          <p class="eyebrow">Tool workspace</p>
+          <h2>当前工具</h2>
+          <p>这里一次只展示一个任务工具，减少干扰。需要换工具时，点上方任务卡片或下面的切换按钮。</p>
+        </div>
+        <div class="tool-switcher" role="tablist" aria-label="工具切换">
+          <button class="tool-tab active" type="button" data-open-tool="fit">选品分析</button>
+          <button class="tool-tab" type="button" data-open-tool="profit">利润费用</button>
+          <button class="tool-tab" type="button" data-open-tool="shipping">运费估算</button>
+          <button class="tool-tab" type="button" data-open-tool="listing">标题违规</button>
+          <button class="tool-tab" type="button" data-open-tool="tutorials">开店教程</button>
+        </div>
+
+        <div class="tool-panel" id="panel-profit" data-tool-panel="profit">
+          <div class="panel-heading">
+            <h3>利润与平台费用计算</h3>
+            <p>默认费率适合新手做第一轮估算，正式定价前再按后台实际类目费率校准。</p>
+          </div>
+          <div class="tool-grid">
+          <article class="tool-card">
+            <div class="tool-title">
+              <span class="tool-icon">¥</span>
+              <div>
+                <h3>Shopee 利润计算器</h3>
+                <p>适合东南亚小件商品初筛。</p>
+              </div>
+            </div>
+            <form class="form" id="shopee-form">
+              <label>售价 <input type="number" name="price" value="59" min="0" step="0.01" /></label>
+              <label>采购成本 <input type="number" name="cost" value="22" min="0" step="0.01" /></label>
+              <label>国内运费 <input type="number" name="domestic" value="4" min="0" step="0.01" /></label>
+              <label>平台佣金 % <input type="number" name="commission" value="6" min="0" step="0.1" /></label>
+              <label>活动/支付费 % <input type="number" name="service" value="4" min="0" step="0.1" /></label>
+              <label>卖家物流补贴 <input type="number" name="subsidy" value="5" min="0" step="0.01" /></label>
+            </form>
+            <div class="result-panel" id="shopee-result" aria-live="polite"></div>
+          </article>
+
+          <article class="tool-card">
+            <div class="tool-title">
+              <span class="tool-icon">$</span>
+              <div>
+                <h3>eBay 手续费计算器</h3>
+                <p>估算成交后平台和支付成本。</p>
+              </div>
+            </div>
+            <form class="form" id="ebay-form">
+              <label>成交价 USD <input type="number" name="price" value="39.99" min="0" step="0.01" /></label>
+              <label>买家运费 USD <input type="number" name="shipping" value="6.99" min="0" step="0.01" /></label>
+              <label>商品成本 USD <input type="number" name="cost" value="14" min="0" step="0.01" /></label>
+              <label>履约成本 USD <input type="number" name="fulfillment" value="8" min="0" step="0.01" /></label>
+              <label>成交费 % <input type="number" name="finalFee" value="13.25" min="0" step="0.01" /></label>
+              <label>支付固定费 USD <input type="number" name="fixedFee" value="0.3" min="0" step="0.01" /></label>
+            </form>
+            <div class="result-panel" id="ebay-result" aria-live="polite"></div>
+          </article>
+
+          <article class="tool-card wide">
+            <div class="tool-title">
+              <span class="tool-icon">%</span>
+              <div>
+                <h3>Wish / TikTok Shop 成本利润表</h3>
+                <p>按平台切换佣金，快速判断毛利空间。</p>
+              </div>
+            </div>
+            <form class="form compact" id="marketplace-form">
+              <label>平台
+                <select name="platform">
+                  <option value="wish">Wish</option>
+                  <option value="tiktok">TikTok Shop</option>
+                </select>
+              </label>
+              <label>售价 <input type="number" name="price" value="24.9" min="0" step="0.01" /></label>
+              <label>商品成本 <input type="number" name="cost" value="7.2" min="0" step="0.01" /></label>
+              <label>头程/尾程 <input type="number" name="logistics" value="5.5" min="0" step="0.01" /></label>
+              <label>广告占比 % <input type="number" name="ads" value="8" min="0" step="0.1" /></label>
+            </form>
+            <div class="table-wrap">
+              <table>
+                <thead>
+                  <tr>
+                    <th>项目</th>
+                    <th>金额</th>
+                    <th>说明</th>
+                  </tr>
+                </thead>
+                <tbody id="marketplace-result"></tbody>
+              </table>
+            </div>
+          </article>
+        </div>
+        </div>
+
+        <div class="tool-panel" id="panel-shipping" data-tool-panel="shipping">
+        <div class="panel-heading">
+          <h3>跨境运费估算器</h3>
+          <p>选择发货地、目的地和渠道，输入实重与包装尺寸，快速估算计费重量、运费区间和物流建议。</p>
+        </div>
+        <div class="workspace">
+          <form class="form compact" id="shipping-form">
+            <label>发货地
+              <select name="origin">
+                <option value="cn" selected>中国大陆</option>
+                <option value="us">美国</option>
+                <option value="eu">欧洲</option>
+                <option value="uk">英国</option>
+                <option value="sea">东南亚</option>
+                <option value="au">澳洲</option>
+              </select>
+            </label>
+            <label>目的地
+              <select name="destination">
+                <option value="us" selected>美国</option>
+                <option value="eu">欧洲</option>
+                <option value="uk">英国</option>
+                <option value="sea">东南亚</option>
+                <option value="latam">拉美</option>
+                <option value="au">澳洲</option>
+              </select>
+            </label>
+            <label>渠道
+              <select name="channel">
+                <option value="economy">经济小包</option>
+                <option value="standard" selected>标准专线</option>
+                <option value="express">商业快递</option>
+                <option value="warehouse">海外仓/本地仓</option>
+              </select>
+            </label>
+            <label>包裹类型
+              <select name="parcel">
+                <option value="normal" selected>普通货</option>
+                <option value="battery">带电/磁性</option>
+                <option value="fragile">易碎品</option>
+                <option value="oversize">抛货/大体积</option>
+              </select>
+            </label>
+            <label>实重 kg <input type="number" name="weight" value="0.65" min="0.01" step="0.01" /></label>
+            <label>长 cm <input type="number" name="length" value="32" min="1" step="1" /></label>
+            <label>宽 cm <input type="number" name="width" value="24" min="1" step="1" /></label>
+            <label>高 cm <input type="number" name="height" value="8" min="1" step="1" /></label>
+          </form>
+          <div class="result-panel large" id="shipping-result" aria-live="polite"></div>
+        </div>
+        </div>
+
+        <div class="tool-panel" id="panel-listing" data-tool-panel="listing">
+        <div class="panel-heading">
+          <h3>商品标题生成与违规词查询</h3>
+          <p>把中文卖点变成可读的英文标题，同时检查容易踩线的表达。</p>
+        </div>
+        <div class="tool-grid two">
+          <article class="tool-card">
+            <div class="tool-title">
+              <span class="tool-icon">T</span>
+              <div>
+                <h3>商品标题生成器</h3>
+                <p>适合 eBay、TikTok Shop、Shopee 英文站点。</p>
+              </div>
+            </div>
+            <form class="form" id="title-form">
+              <label>产品关键词 <input name="keyword" value="foldable travel storage bag" /></label>
+              <label>核心材质/规格 <input name="spec" value="water resistant nylon, large capacity" /></label>
+              <label>适用场景 <input name="scene" value="weekend trips, gym, luggage organizer" /></label>
+              <label>目标平台
+                <select name="platform">
+                  <option>eBay</option>
+                  <option>Shopee</option>
+                  <option>TikTok Shop</option>
+                  <option>Wish</option>
+                </select>
+              </label>
+            </form>
+            <div class="generated-title" id="title-result"></div>
+          </article>
+
+          <article class="tool-card">
+            <div class="tool-title">
+              <span class="tool-icon">!</span>
+              <div>
+                <h3>禁售品/违规词查询</h3>
+                <p>检查标题、五点描述和卖点文案。</p>
+              </div>
+            </div>
+            <label class="textarea-label">
+              待检查文案
+              <textarea id="compliance-input">Best anti-virus miracle cure phone case, compatible with iPhone style, free brand logo gift.</textarea>
+            </label>
+            <div class="result-panel" id="compliance-result" aria-live="polite"></div>
+          </article>
+        </div>
+        </div>
+
+        <div class="tool-panel" id="panel-tutorials" data-tool-panel="tutorials">
+        <div class="panel-heading">
+          <h3>平台开店流程教程</h3>
+          <p>按资料准备、费用理解、商品上架、履约售后四步推进。</p>
+        </div>
+        <div class="tabs" role="tablist" aria-label="平台教程">
+          <button class="tab active" data-platform="shopee" type="button">Shopee</button>
+          <button class="tab" data-platform="ebay" type="button">eBay</button>
+          <button class="tab" data-platform="tiktok" type="button">TikTok Shop</button>
+          <button class="tab" data-platform="wish" type="button">Wish</button>
+        </div>
+        <div class="tutorial-panel" id="tutorial-panel"></div>
+        </div>
+
+        <div class="tool-panel active" id="panel-fit" data-tool-panel="fit">
+        <div class="panel-heading">
+          <h3>选品可行性分析</h3>
+          <p>不确定一个产品能不能做跨境？先输入价格、重量、卖点和风险，快速判断是否值得小批量测试。</p>
+        </div>
+        <div class="workspace split">
+          <form class="form" id="fit-form">
+            <label>产品名 <input name="name" value="便携折叠收纳包" /></label>
+            <label>目标平台
+              <select name="platform">
+                <option value="shopee">Shopee</option>
+                <option value="ebay">eBay</option>
+                <option value="tiktok">TikTok Shop</option>
+                <option value="wish">Wish</option>
+              </select>
+            </label>
+            <label>预计售价 USD <input type="number" name="price" value="18.9" min="0" step="0.01" /></label>
+            <label>采购成本 USD <input type="number" name="cost" value="5.2" min="0" step="0.01" /></label>
+            <label>物流成本 USD <input type="number" name="shipping" value="4.6" min="0" step="0.01" /></label>
+            <label>广告占比 %
+              <select name="ads">
+                <option value="5">低：5%</option>
+                <option value="10" selected>中：10%</option>
+                <option value="18">高：18%</option>
+              </select>
+            </label>
+            <label>包装重量
+              <select name="weight">
+                <option value="light" selected>轻小件：1kg 内</option>
+                <option value="medium">中等：1-2kg</option>
+                <option value="heavy">偏重/大体积</option>
+              </select>
+            </label>
+            <label>竞争强度
+              <select name="competition">
+                <option value="low">低：同款少</option>
+                <option value="medium" selected>中：有同款但能区分</option>
+                <option value="high">高：价格战明显</option>
+              </select>
+            </label>
+            <label>合规风险
+              <select name="risk">
+                <option value="low" selected>低：普通日用品</option>
+                <option value="medium">中：带电/儿童/美妆等</option>
+                <option value="high">高：品牌/功效/认证不确定</option>
+              </select>
+            </label>
+            <label class="full-field">一句话卖点 <input name="edge" value="可折叠、防泼水、多隔层，适合旅行和健身收纳" /></label>
+          </form>
+          <div class="analysis-card" id="fit-result"></div>
+        </div>
+        </div>
+      </section>
+
+      <section id="articles" class="section band">
+        <div class="section-heading">
+          <p class="eyebrow">Beginner articles</p>
+          <h2>新手先读这几篇</h2>
+          <p>首页只放最常用的入门问题。全部 15 篇文章放到文章中心，避免把工具入口挤得太深。</p>
+        </div>
+        <div class="article-grid featured-list">
+          <a href="./article.html?slug=shopee-still-worth-it" class="article-card">
+            <span>Shopee</span>
+            <strong>Shopee 现在还能不能做？</strong>
+            <p>看适合人群、类目机会、费用变化和新手入场方式。</p>
+          </a>
+          <a href="./article.html?slug=ebay-new-account-growth" class="article-card">
+            <span>eBay</span>
+            <strong>eBay 新号怎么养？</strong>
+            <p>从刊登节奏、物流追踪、账号指标和风控动作开始。</p>
+          </a>
+          <a href="./article.html?slug=wish-profit-2026" class="article-card">
+            <span>Wish</span>
+            <strong>Wish 现在还有利润吗？</strong>
+            <p>用成本、佣金、广告和退款率重新算一遍账。</p>
+          </a>
+          <a href="./article.html?slug=tiktok-shop-no-us-identity" class="article-card">
+            <span>TikTok Shop</span>
+            <strong>TikTok Shop 没美国身份怎么办？</strong>
+            <p>梳理常见入驻路径、资质限制和替代市场选择。</p>
+          </a>
+          <a href="./article.html?slug=best-platform-for-beginners" class="article-card">
+            <span>平台选择</span>
+            <strong>新手做跨境电商选哪个平台？</strong>
+            <p>按资金、供应链、内容能力和运营耐心做匹配。</p>
+          </a>
+          <a href="./article.html?slug=cross-border-product-selection" class="article-card">
+            <span>选品</span>
+            <strong>跨境电商怎么选品？</strong>
+            <p>从需求、竞争、物流、合规和利润五个维度筛选。</p>
+          </a>
+          <a href="./article.html?slug=profit-calculation" class="article-card">
+            <span>利润</span>
+            <strong>跨境电商利润怎么算？</strong>
+            <p>把采购、平台费、物流、广告、退款和汇损都算进去。</p>
+          </a>
+          <a href="./article.html?slug=shopee-fees" class="article-card">
+            <span>Shopee</span>
+            <strong>Shopee 手续费有哪些？</strong>
+            <p>拆解佣金、交易费、活动费、物流补贴和广告预算。</p>
+          </a>
+          <a href="./article.html?slug=ebay-fees" class="article-card">
+            <span>eBay</span>
+            <strong>eBay 手续费有哪些？</strong>
+            <p>理解成交费、支付费、店铺费和推广费的影响。</p>
+          </a>
+          <a href="./article.html?slug=shipping-choice" class="article-card">
+            <span>物流</span>
+            <strong>跨境物流怎么选？</strong>
+            <p>比较邮政小包、专线、商业快递和海外仓的适用场景。</p>
+          </a>
+          <a href="./article.html?slug=low-cost-cross-border-process" class="article-card">
+            <span>流程</span>
+            <strong>低成本做跨境电商流程</strong>
+            <p>从选平台、找货、测品、上架到第一单履约。</p>
+          </a>
+          <a href="./article.html?slug=ai-product-images" class="article-card">
+            <span>AI 作图</span>
+            <strong>AI 怎么帮跨境卖家做图？</strong>
+            <p>生成场景图、卖点图、尺寸图和短视频素材脚本。</p>
+          </a>
+          <a href="./article.html?slug=ai-product-title" class="article-card">
+            <span>AI 标题</span>
+            <strong>AI 怎么生成商品标题？</strong>
+            <p>把关键词、属性、场景和平台字符限制组合起来。</p>
+          </a>
+          <a href="./article.html?slug=ai-product-description" class="article-card">
+            <span>详情页</span>
+            <strong>AI 怎么写商品详情页？</strong>
+            <p>输出五点描述、适用场景、FAQ 和合规表达。</p>
+          </a>
+          <a href="./article.html?slug=beginner-loss-points" class="article-card">
+            <span>避坑</span>
+            <strong>新手做跨境最容易亏在哪里？</strong>
+            <p>重点检查库存、物流、广告、侵权、退款和汇率。</p>
+          </a>
+        </div>
+        <div class="section-actions">
+          <a class="button secondary" href="./articles.html">查看全部 15 篇文章</a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <strong>跨境卖家工具箱</strong>
+      <span>费用与规则会随平台变化，工具结果用于选品和定价初筛。</span>
+    </footer>
+
+    <script src="./script.js"></script>
+  </body>
+</html>
